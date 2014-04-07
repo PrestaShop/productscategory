@@ -42,7 +42,7 @@ class ProductsCategory extends Module
 		$this->bootstrap = true;
 		parent::__construct();
 
-		$this->displayName = $this->l('Products category');
+		$this->displayName = $this->l('Products in the same category');
 		$this->description = $this->l('Displays products of the same category on the product page.');
 		$this->ps_versions_compliancy = array('min' => '1.5.6.1', 'max' => _PS_VERSION_);
 	}
