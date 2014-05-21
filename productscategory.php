@@ -43,7 +43,7 @@ class ProductsCategory extends Module
 		parent::__construct();
 
 		$this->displayName = $this->l('Products in the same category');
-		$this->description = $this->l('Displays products of the same category on the product page.');
+		$this->description = $this->l('Adds a block on the product page that displays products from the same category.');
 	}
 
 	public function install()
@@ -239,8 +239,8 @@ class ProductsCategory extends Module
 				'input' => array(
 					array(
 						'type' => 'switch',
-						'label' => $this->l('Display price on products'),
-						'desc' => $this->l('Show the price on the products in the block.'),
+						'label' => $this->l('Display products\' prices'),
+						'desc' => $this->l('Show the prices of the products displayed in the block.'),
 						'name' => 'PRODUCTSCATEGORY_DISPLAY_PRICE',
 						'values' => array(
 							array(
