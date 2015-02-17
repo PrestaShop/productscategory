@@ -215,6 +215,8 @@ class ProductsCategory extends Module
 
 	public function hookAddProduct($params)
 	{
+		if (!isset($params['product']))
+			return;
 		$id_product = (int)$params['product']->id;
 		$product = $params['product'];
 
@@ -224,6 +226,8 @@ class ProductsCategory extends Module
 
 	public function hookUpdateProduct($params)
 	{
+		if (!isset($params['product']))
+			return;
 		$id_product = (int)$params['product']->id;
 		$product = $params['product'];
 
@@ -233,6 +237,8 @@ class ProductsCategory extends Module
 
 	public function hookDeleteProduct($params)
 	{
+		if (!isset($params['product']))
+			return;
 		$id_product = (int)$params['product']->id;
 		$product = $params['product'];
 
