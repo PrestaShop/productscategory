@@ -29,7 +29,7 @@ if (!defined('_PS_VERSION_'))
 
 class ProductsCategory extends Module
 {
-	private $html;
+	protected $html;
 
 	public function __construct()
 	{
@@ -90,7 +90,7 @@ class ProductsCategory extends Module
 		return $this->html;
 	}
 
-	private function getCurrentProduct($products, $id_current)
+	protected function getCurrentProduct($products, $id_current)
 	{
 		if ($products)
 		{
