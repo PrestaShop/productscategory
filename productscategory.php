@@ -172,6 +172,7 @@ class ProductsCategory extends Module
 				}
 
 				// Get positions
+				$nb_category_products = (int)count($category_products);
 				$middle_position = (int)round($nb_category_products / 2, 0);
 				$product_position = $this->getCurrentProduct($category_products, (int)$id_product);
 
@@ -195,7 +196,7 @@ class ProductsCategory extends Module
 			$this->smarty->assign(
 				array(
 					'categoryProducts' => $category_products,
-					'middlePosition' => (int)$middle_position,
+					'middlePosition' => $middle_position,
 					'ProdDisplayPrice' => Configuration::get('PRODUCTSCATEGORY_DISPLAY_PRICE')
 				)
 			);
