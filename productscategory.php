@@ -44,6 +44,7 @@ class ProductsCategory extends Module
 
 		$this->displayName = $this->l('Products in the same category');
 		$this->description = $this->l('Adds a block on the product page that displays products from the same category.');
+		$this->ps_versions_compliancy = array('min' => '1.6', 'max' => '1.6.99.99');
 	}
 
 	public function install()
