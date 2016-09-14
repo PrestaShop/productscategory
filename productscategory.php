@@ -149,40 +149,28 @@ class ProductsCategory extends Module
 				{
 					foreach ($category_products as $key => $category_product)
 					{
-						if ($category_product['id_product'] != $id_product)
+						if ($taxes == 0 || $taxes == 2)
 						{
-							if ($taxes == 0 || $taxes == 2)
-							{
-								$category_products[$key]['displayed_price'] = Product::getPriceStatic(
-									(int)$category_product['id_product'],
-									true,
-									null,
-									2
-								);
-							} elseif ($taxes == 1)
-							{
-								$category_products[$key]['displayed_price'] = Product::getPriceStatic(
-									(int)$category_product['id_product'],
-									false,
-									null,
-									2
-								);
-							}
+							$category_products[$key]['displayed_price'] = Product::getPriceStatic(
+								(int)$category_product['id_product'],
+								true,
+								null,
+								2
+							);
+						} elseif ($taxes == 1)
+						{
+							$category_products[$key]['displayed_price'] = Product::getPriceStatic(
+								(int)$category_product['id_product'],
+								false,
+								null,
+								2
+							);
 						}
 					}
 				}
 
 				// Get positions
 				$middle_position = (int)round($nb_category_products / 2, 0);
-				$product_position = $this->getCurrentProduct($category_products, (int)$id_product);
-
-				// Flip middle product with current product
-				if ($product_position)
-				{
-					$tmp = $category_products[$middle_position - 1];
-					$category_products[$middle_position - 1] = $category_products[$product_position];
-					$category_products[$product_position] = $tmp;
-				}
 
 				// If products tab higher than 30, slice it
 				if ($nb_category_products > 30)
