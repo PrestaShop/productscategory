@@ -218,33 +218,26 @@ class ProductsCategory extends Module
 	{
 		if (!isset($params['product']))
 			return;
-		$id_product = (int)$params['product']->id;
-		$product = $params['product'];
-
-		$cache_id = 'productscategory|'.$id_product.'|'.(isset($params['category']->id_category) ? (int)$params['category']->id_category : (int)$product->id_category_default);
-		$this->_clearCache('productscategory.tpl', $this->getCacheId($cache_id));
+		$this->_clearCache('productscategory.tpl');
 	}
 
 	public function hookUpdateProduct($params)
 	{
 		if (!isset($params['product']))
 			return;
-		$id_product = (int)$params['product']->id;
-		$product = $params['product'];
-
-		$cache_id = 'productscategory|'.$id_product.'|'.(isset($params['category']->id_category) ? (int)$params['category']->id_category : (int)$product->id_category_default);
-		$this->_clearCache('productscategory.tpl', $this->getCacheId($cache_id));
+		$this->_clearCache('productscategory.tpl');
 	}
 
 	public function hookDeleteProduct($params)
 	{
 		if (!isset($params['product']))
 			return;
-		$id_product = (int)$params['product']->id;
-		$product = $params['product'];
+		$this->_clearCache('productscategory.tpl');
+	}
 
-		$cache_id = 'productscategory|'.$id_product.'|'.(isset($params['category']->id_category) ? (int)$params['category']->id_category : (int)$product->id_category_default);
-		$this->_clearCache('productscategory.tpl', $this->getCacheId($cache_id));
+	public function _clearCache($template, $cache_id = NULL, $compile_id = NULL)
+	{
+		Tools::clearCache(Context::getContext()->smarty, $this->getTemplatePath('productscategory.tpl'));
 	}
 
 	public function renderForm()
